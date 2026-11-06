@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://virginierealestate.com/sitemap.xml
