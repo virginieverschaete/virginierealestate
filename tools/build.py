@@ -65,6 +65,8 @@ def set_head(soup, lang, title, desc, path, depth):
 def fix_assets(soup, depth):
     pre = '../' * depth
     if not pre: return
+    for st in soup.find_all('style'):
+        st.string = st.string.replace('url(fonts/', f'url({pre}fonts/')
     for tag in soup.find_all(['img', 'link', 'a']):
         for attr in ('src', 'href'):
             v = tag.get(attr)
@@ -87,6 +89,9 @@ def translate(soup, lang):
         k = el['data-i18n']
         if k in d:
             el.clear(); el.append(BeautifulSoup(d[k], 'html.parser'))
+    for el in soup.select('[data-i18n-ph]'):
+        k = el['data-i18n-ph']
+        if k in d: el['placeholder'] = d[k]
 
 def listings(soup):
     for a in soup.select('.js-listings'):
@@ -163,6 +168,7 @@ def build_town(lang, slug, t):
 <section class="cream town-others">
   <div class="wrap"><div class="eyebrow">{L['others']}</div><div class="other-towns">{others}</div></div>
 </section>''', 'html.parser'))
+    for a in soup.select('a[href="privacy/"]'): a['href'] = home + 'privacy/'
     # header links point back to the home page sections
     for a in soup.select('header nav a[href^="#"]'): a['href'] = home + a['href']
     logo = soup.select_one('header a.logo');  logo['href'] = home
@@ -178,6 +184,37 @@ def build_town(lang, slug, t):
     set_jsonld(soup, [org, place])
     fix_assets(soup, depth); lang_links(soup, lang, path, depth)
     # remove the WhatsApp/page script parts that expect home sections: keep script, it is harmless
+    out = ROOT / ((f'{lang}/' if lang != 'en' else '') + path + 'index.html')
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(str(soup), encoding='utf-8')
+
+# ---- privacy pages -------------------------------------------------------------
+PRIVACY = json.loads((ROOT / 'src/privacy.json').read_text(encoding='utf-8'))
+
+def build_privacy(lang):
+    P = PRIVACY[lang]; path = 'privacy/'
+    depth = (0 if lang == 'en' else 1) + 1
+    home = '../'
+    soup = BeautifulSoup(TEMPLATE, 'html.parser')
+    translate(soup, lang)
+    main = soup.find('main'); main.clear()
+    secs = ''.join(f'<h2>{h}</h2><p>{t}</p>' for h, t in P['sections'])
+    main.append(BeautifulSoup(f'''
+<section class="hero town-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="{home}">{TOWNS['labels'][lang]['home']}</a> / <span>{P['title']}</span></div>
+    <h1>{P['title']}</h1>
+    <p class="lead">{P['updated']}</p>
+  </div>
+</section>
+<section class="legal"><div class="wrap">{secs}</div></section>''', 'html.parser'))
+    for a in soup.select('header nav a[href^="#"]'): a['href'] = home + a['href']
+    soup.select_one('header a.logo')['href'] = home
+    for a in soup.select('a[href="privacy/"]'): a['href'] = './'
+    set_head(soup, lang, f"{P['title']} | Virginie Real Estate", P['meta'], path, depth)
+    org = base_org(soup); org['url'] = url(lang)
+    set_jsonld(soup, [org, {'@type': 'WebPage', 'name': P['title'], 'url': url(lang, path), 'inLanguage': lang}])
+    fix_assets(soup, depth); lang_links(soup, lang, path, depth)
     out = ROOT / ((f'{lang}/' if lang != 'en' else '') + path + 'index.html')
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(str(soup), encoding='utf-8')
@@ -203,8 +240,9 @@ def llms():
 if __name__ == '__main__':
     for l in LANGS:
         build_home(l)
+        build_privacy(l)
         for s in TOWNS['order']:
             build_town(l, s, TOWNS['towns'][s])
-    sitemap([''] + [f'areas/{s}/' for s in TOWNS['order']])
+    sitemap([''] + [f'areas/{s}/' for s in TOWNS['order']] + ['privacy/'])
     llms()
     print('built', len(LANGS) * (1 + len(TOWNS['order'])), 'pages')
