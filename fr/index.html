@@ -118,6 +118,8 @@ nav a:hover{color:var(--gold-text)}
 .svc p{color:var(--text);font-size:16px}
 
 /* Process */
+.buying+.process{padding-top:0}
+.selling+.areas{border-top:1px solid var(--line)}
 .steps{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:52px;counter-reset:s}
 .steps li{counter-increment:s;padding-top:22px;border-top:1px solid var(--ink)}
 .steps li::before{content:"0" counter(s);font:500 12px var(--body);letter-spacing:.2em;color:var(--gold-text)}
@@ -343,6 +345,19 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 </div>
 </div>
 </section>
+<section class="process" id="route">
+<div class="wrap">
+<div class="eyebrow" data-i18n="process_eyebrow">Votre parcours d'acheteur</div>
+<h2 data-i18n="process_title">Du premier échange à l'escritura.</h2>
+<ol class="steps">
+<li><h3 data-i18n="s1_t">Échange</h3><p data-i18n="s1_d">Vos projets, votre budget et votre calendrier.</p></li>
+<li><h3 data-i18n="s2_t">Recherche</h3><p data-i18n="s2_d">Une sélection sur mesure, sur tout le marché.</p></li>
+<li><h3 data-i18n="s3_t">Visites</h3><p data-i18n="s3_d">Organisées, préparées et suivies.</p></li>
+<li><h3>CPCV</h3><p data-i18n="s4_d">Négociation et compromis de vente.</p></li>
+<li><h3>Escritura</h3><p data-i18n="s5_d">Signature de l'acte et remise des clés.</p></li>
+</ol>
+</div>
+</section>
 <section class="guide cream" id="guide">
 <div class="wrap guide-grid">
 <div>
@@ -426,19 +441,6 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 <label class="consent"><input id="v-consent" required="" type="checkbox"/> <span data-i18n="f_consent">J'accepte que mes données soient utilisées pour répondre à ma demande, comme décrit dans la <a href="privacy/">politique de confidentialité</a>.</span></label>
 <button class="btn solid" type="submit"><span data-i18n="v_send">Demander mon estimation</span><span class="arr">→</span></button>
 </form>
-</div>
-</section>
-<section class="process">
-<div class="wrap">
-<div class="eyebrow" data-i18n="process_eyebrow">Le parcours</div>
-<h2 data-i18n="process_title">Du premier échange à l'escritura.</h2>
-<ol class="steps">
-<li><h3 data-i18n="s1_t">Échange</h3><p data-i18n="s1_d">Vos projets, votre budget et votre calendrier.</p></li>
-<li><h3 data-i18n="s2_t">Recherche ou estimation</h3><p data-i18n="s2_d">Une sélection pour l'acheteur, un positionnement pour le vendeur.</p></li>
-<li><h3 data-i18n="s3_t">Visites</h3><p data-i18n="s3_d">Organisées, préparées et suivies.</p></li>
-<li><h3>CPCV</h3><p data-i18n="s4_d">Négociation et compromis de vente.</p></li>
-<li><h3>Escritura</h3><p data-i18n="s5_d">Signature de l'acte et remise des clés.</p></li>
-</ol>
 </div>
 </section>
 <section class="areas cream" id="areas">
@@ -598,9 +600,9 @@ const T = {
   svc_buy_t:"Kopen",svc_buy_d:"Zoeken en selecteren, analyse van het pand, georganiseerde bezoeken, onderhandeling en afstemming met advocaten, banken en notarissen.",
   svc_sell_t:"Verkopen",svc_sell_d:"Een prijs op basis van een grondige marktanalyse. Ik breng woningen op de markt aan een realistische waarde, want een correct geprijsde woning trekt serieuze kopers aan en wordt verkocht. Daarbij een premium presentatie met fotografie en video, en bereik naar internationale kopers.",
   svc_new_t:"Nieuwbouw &amp; grond",svc_new_d:"Appartementen en villa's op plan en bouwgronden, helder uitgelegd zodat u weet wat u koopt voordat het gebouwd is.",
-  process_eyebrow:"Het traject",process_title:"Van eerste gesprek tot escritura.",
-  s1_t:"Kennismaking",s1_d:"Uw plannen, budget en timing.",s2_t:"Zoektocht of waardering",s2_d:"Een selectie voor kopers, marktpositionering voor verkopers.",
-  s3_t:"Bezoeken",s3_d:"Georganiseerd, voorbereid en opgevolgd.",s4_d:"Onderhandeling en het voorlopig koopcontract.",s5_d:"Ondertekening van de akte en overdracht van de sleutels.",
+  process_eyebrow:"Uw traject als koper",process_title:"Van eerste gesprek tot escritura.",
+  s1_t:"Kennismaking",s1_d:"Uw plannen, budget en timing.",s2_t:"Zoektocht",s2_d:"Een selectie op maat, uit de hele markt.",
+  s3_t:"Bezoeken",s3_d:"Georganiseerd, voorbereid en opgevolgd.",s4_d:"Onderhandeling en het voorlopig koopcontract.",s5_d:"Ondertekening van de akte en ontvangst van de sleutels.",
   areas_eyebrow:"Regio",areas_title:"Waar ik werk",areas_intro:"De Zilverkust, met focus op deze plaatsen en de gemeenten eromheen.",
   t_alc:"Kloosterstad met een rustig, landelijk ritme.",t_smp:"De schelpvormige baai met kalm water.",t_foz:"Waar de lagune van Óbidos de Atlantische Oceaan raakt.",
   t_cal:"De regionale stad: scholen, ziekenhuis en de dagelijkse fruitmarkt.",t_obi:"Het ommuurde middeleeuwse stadje en zijn platteland.",t_bom:"Wijngaarden, boomgaarden en ruimte.",t_lou:"Atlantische stranden en dinosaurusland.",
@@ -635,8 +637,8 @@ const T = {
   svc_buy_t:"Acheter",svc_buy_d:"Recherche et sélection, analyse du bien, visites organisées, négociation et coordination avec avocats, banques et notaires.",
   svc_sell_t:"Vendre",svc_sell_d:"Un prix fondé sur une analyse approfondie du marché. Je mets les biens en vente à leur juste valeur, car un bien correctement estimé attire des acheteurs sérieux et se vend. S'y ajoutent une présentation haut de gamme avec photos et vidéo, et une visibilité auprès d'acheteurs internationaux.",
   svc_new_t:"Neuf &amp; terrains",svc_new_d:"Appartements et villas sur plan, terrains à bâtir, expliqués clairement pour savoir ce que vous achetez avant la construction.",
-  process_eyebrow:"Le parcours",process_title:"Du premier échange à l'escritura.",
-  s1_t:"Échange",s1_d:"Vos projets, votre budget et votre calendrier.",s2_t:"Recherche ou estimation",s2_d:"Une sélection pour l'acheteur, un positionnement pour le vendeur.",
+  process_eyebrow:"Votre parcours d'acheteur",process_title:"Du premier échange à l'escritura.",
+  s1_t:"Échange",s1_d:"Vos projets, votre budget et votre calendrier.",s2_t:"Recherche",s2_d:"Une sélection sur mesure, sur tout le marché.",
   s3_t:"Visites",s3_d:"Organisées, préparées et suivies.",s4_d:"Négociation et compromis de vente.",s5_d:"Signature de l'acte et remise des clés.",
   areas_eyebrow:"Régions",areas_title:"Où je travaille",areas_intro:"La Silver Coast, en particulier ces localités et les communes alentour.",
   t_alc:"Ville du monastère, au rythme paisible de l'intérieur.",t_smp:"La baie en forme de coquillage, aux eaux calmes.",t_foz:"Là où la lagune d'Óbidos rencontre l'Atlantique.",
@@ -672,8 +674,8 @@ const T = {
   svc_buy_t:"Comprar",svc_buy_d:"Pesquisa e seleção, análise do imóvel, visitas organizadas, negociação e articulação com advogados, bancos e notários.",
   svc_sell_t:"Vender",svc_sell_d:"Um preço baseado numa análise rigorosa do mercado. Coloco os imóveis no mercado pelo seu valor real, porque um imóvel com o preço certo atrai compradores sérios e vende-se. A isto junta-se uma apresentação premium com fotografia e vídeo, e alcance junto de compradores internacionais.",
   svc_new_t:"Construção nova &amp; terrenos",svc_new_d:"Apartamentos e moradias em planta e terrenos para construção, explicados com clareza para saber o que compra antes de estar construído.",
-  process_eyebrow:"O percurso",process_title:"Da primeira conversa à escritura.",
-  s1_t:"Conversa",s1_d:"Os seus planos, orçamento e prazos.",s2_t:"Pesquisa ou avaliação",s2_d:"Uma seleção para compradores, posicionamento de mercado para vendedores.",
+  process_eyebrow:"O seu percurso como comprador",process_title:"Da primeira conversa à escritura.",
+  s1_t:"Conversa",s1_d:"Os seus planos, orçamento e prazos.",s2_t:"Pesquisa",s2_d:"Uma seleção à medida, em todo o mercado.",
   s3_t:"Visitas",s3_d:"Organizadas, preparadas e acompanhadas.",s4_d:"Negociação e contrato-promessa de compra e venda.",s5_d:"Assinatura da escritura e entrega das chaves.",
   areas_eyebrow:"Zonas",areas_title:"Onde trabalho",areas_intro:"A Costa de Prata, com foco nestas localidades e nos concelhos à volta.",
   t_alc:"Cidade do mosteiro, com o ritmo tranquilo do interior.",t_smp:"A baía em forma de concha, de águas calmas.",t_foz:"Onde a Lagoa de Óbidos encontra o Atlântico.",
