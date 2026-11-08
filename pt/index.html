@@ -122,7 +122,7 @@ nav a:hover{color:var(--gold-text)}
 .sell-route{margin-top:clamp(56px,8vw,96px);padding-top:clamp(40px,6vw,64px);position:relative}
 #selling .valuation{border-top:0;position:relative}
 .sell-route::before,#selling .valuation::before{content:"";position:absolute;top:0;left:clamp(20px,5vw,56px);right:clamp(20px,5vw,56px);border-top:1px solid var(--line)}
-.selling+.areas{border-top:1px solid var(--line)}
+.guide+.areas{border-top:1px solid var(--line)}
 .steps{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:52px;counter-reset:s}
 .steps li{counter-increment:s;padding-top:22px;border-top:1px solid var(--ink)}
 .steps li::before{content:"0" counter(s);font:500 12px var(--body);letter-spacing:.2em;color:var(--gold-text)}
@@ -291,9 +291,9 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 <a class="logo" href="#top"><img alt="Virginie Real Estate" height="60" src="../img/logo-main.svg" width="230"/></a>
 <button aria-controls="mainNav" aria-expanded="false" class="menu-btn" id="menuBtn">MENU</button>
 <nav id="mainNav">
+<a data-i18n="nav_sell" href="#selling">Vender</a>
 <a data-i18n="nav_buy" href="#buying">Comprar</a>
 <a data-i18n="nav_forsale" href="#for-sale">À venda</a>
-<a data-i18n="nav_sell" href="#selling">Vender</a>
 <a data-i18n="nav_areas" href="#areas">Zonas</a>
 <a data-i18n="nav_about" href="#about">Sobre mim</a>
 <a data-i18n="nav_contact" href="#contact">Contacto</a>
@@ -314,8 +314,8 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 <h1 data-i18n="hero_title">A sua casa na Costa de Prata, <em>encontrada com cuidado.</em></h1>
 <p class="lead" data-i18n="hero_sub">Acompanhamento personalizado para compradores e vendedores, nacionais e internacionais, na Costa de Prata. Em português, inglês, francês e neerlandês.</p>
 <div class="ctas">
-<a class="btn solid js-listings" href="https://www.iadportugal.pt/en/real-estate-agent/virginie.verschaete" rel="noopener" target="_blank"><span data-i18n="cta_sale">Ver imóveis à venda</span><span class="arr">→</span></a>
-<a class="btn ghost" data-i18n="hero_val" href="#valuation">Avaliar o seu imóvel</a>
+<a class="btn solid" href="#valuation"><span data-i18n="hero_val">Avaliar o seu imóvel</span><span class="arr">→</span></a>
+<a class="btn ghost js-listings" data-i18n="cta_sale" href="https://www.iadportugal.pt/en/real-estate-agent/virginie.verschaete" rel="noopener" target="_blank">Ver imóveis à venda</a>
 </div>
 <p class="talk"><a data-i18n="cta_talk" href="#contact">Marcar uma conversa</a></p>
 </div>
@@ -332,75 +332,9 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 <div class="eyebrow" data-i18n="services_eyebrow">Serviços</div>
 <h2 data-i18n="services_title">Como posso ajudar</h2>
 <div class="svc">
-<article><div class="no">i.</div><h3 data-i18n="svc_buy_t">Comprar</h3><p data-i18n="svc_buy_d">Pesquisa e seleção, análise do imóvel, visitas organizadas, negociação e articulação com advogados, bancos e notários.</p><a class="more" data-i18n="svc_buy_link" href="#buying">Comigo como consultora do comprador →</a></article>
-<article><div class="no">ii.</div><h3 data-i18n="svc_sell_t">Vender</h3><p data-i18n="svc_sell_d">Um preço baseado numa análise rigorosa do mercado. Coloco os imóveis no mercado pelo seu valor real, porque um imóvel com o preço certo atrai compradores sérios e vende-se. A isto junta-se uma apresentação premium com fotografia e vídeo, e alcance junto de compradores internacionais.</p><a class="more" data-i18n="svc_val_link" href="#valuation">Pedir uma avaliação →</a><br/><a class="more" data-i18n="svc_sell_link" href="#selling">Que documentos precisa para vender →</a></article>
+<article><div class="no">i.</div><h3 data-i18n="svc_sell_t">Vender</h3><p data-i18n="svc_sell_d">Um preço baseado numa análise rigorosa do mercado. Coloco os imóveis no mercado pelo seu valor real, porque um imóvel com o preço certo atrai compradores sérios e vende-se. A isto junta-se uma apresentação premium com fotografia e vídeo, e alcance junto de compradores internacionais.</p><a class="more" data-i18n="svc_val_link" href="#valuation">Pedir uma avaliação →</a><br/><a class="more" data-i18n="svc_sell_link" href="#selling">Que documentos precisa para vender →</a></article>
+<article><div class="no">ii.</div><h3 data-i18n="svc_buy_t">Comprar</h3><p data-i18n="svc_buy_d">Pesquisa e seleção, análise do imóvel, visitas organizadas, negociação e articulação com advogados, bancos e notários.</p><a class="more" data-i18n="svc_buy_link" href="#buying">Comigo como consultora do comprador →</a></article>
 <article><div class="no">iii.</div><h3 data-i18n="svc_new_t">Construção nova &amp; terrenos</h3><p data-i18n="svc_new_d">Apartamentos e moradias em planta e terrenos para construção, explicados com clareza para saber o que compra antes de estar construído.</p></article>
-</div>
-</div>
-</section>
-<section class="buying" id="buying">
-<div class="wrap">
-<div class="eyebrow sec-label" data-i18n="buy_eyebrow">Comprar</div>
-<div class="buyer buyer-grid" id="buyers-agent">
-<div>
-<div class="eyebrow light" data-i18n="ba_eyebrow">Consultora do comprador</div>
-<h2 data-i18n="ba_title">Todos os imóveis do mercado. Uma consultora do seu lado.</h2>
-<p data-i18n="ba_p1">A maioria dos consultores mostra sobretudo os seus próprios imóveis. Como consultora do comprador, procuro por si em todo o mercado: imóveis de outras agências, empreendimentos novos e casas vendidas diretamente pelos proprietários.</p>
-<p data-i18n="ba_p2">Com um contrato de mediação com o comprador, trabalho para si. A minha remuneração fica acordada por escrito antes de começarmos e só é devida se a compra se concretizar. Nos imóveis já anunciados por uma agência, a comissão é normalmente paga pelo vendedor; nas vendas entre particulares, a remuneração é acordada no seu contrato.</p>
-<div class="ctas"><a class="btn solid" data-wa="wa_buyer" href="https://wa.me/351920445059"><span data-i18n="ba_cta">Pedir informações sobre o contrato</span><span class="arr">→</span></a></div>
-</div>
-<ul class="ba-list">
-<li><span>01</span><p data-i18n="ba_l1">Pesquisa em agências, portais e vendedores particulares</p></li>
-<li><span>02</span><p data-i18n="ba_l2">Visitas selecionadas e preparadas, mesmo que esteja no estrangeiro</p></li>
-<li><span>03</span><p data-i18n="ba_l3">Verificação da documentação do imóvel com o seu advogado</p></li>
-<li><span>04</span><p data-i18n="ba_l4">Negociação em seu nome, até à escritura</p></li>
-</ul>
-</div>
-</div>
-</section>
-<section class="forsale" id="for-sale">
-<div class="wrap">
-<div class="sale-box">
-<div>
-<div class="eyebrow" data-i18n="sale_eyebrow">À venda</div>
-<h2 data-i18n="sale_title">Imóveis disponíveis</h2>
-<p data-i18n="sale_p">Os meus imóveis atuais, com preços, fotografias e detalhes, estão na minha página profissional de anúncios.</p>
-<p data-i18n="sale_p2">Procura algo que não está anunciado? Diga-me o que procura.</p>
-</div>
-<div class="ctas">
-<a class="btn solid js-listings" href="https://www.iadportugal.pt/en/real-estate-agent/virginie.verschaete" rel="noopener" target="_blank"><span data-i18n="cta_sale">Ver imóveis à venda</span><span class="arr">→</span></a>
-<a class="btn ghost" data-i18n="cta_search" href="#contact">Diga-me o que procura</a>
-</div>
-</div>
-</div>
-</section>
-<section class="process" id="route">
-<div class="wrap">
-<div class="eyebrow" data-i18n="process_eyebrow">O seu percurso como comprador</div>
-<h2 data-i18n="process_title">Da primeira conversa à escritura.</h2>
-<ol class="steps">
-<li><h3 data-i18n="s1_t">Conversa</h3><p data-i18n="s1_d">Os seus planos, orçamento e prazos.</p></li>
-<li><h3 data-i18n="s2_t">Pesquisa</h3><p data-i18n="s2_d">Uma seleção à medida, em todo o mercado.</p></li>
-<li><h3 data-i18n="s3_t">Visitas</h3><p data-i18n="s3_d">Organizadas, preparadas e acompanhadas.</p></li>
-<li><h3>CPCV</h3><p data-i18n="s4_d">Negociação e contrato-promessa de compra e venda.</p></li>
-<li><h3>Escritura</h3><p data-i18n="s5_d">Assinatura da escritura e entrega das chaves.</p></li>
-</ol>
-</div>
-</section>
-<section class="guide cream" id="guide">
-<div class="wrap guide-grid">
-<div>
-<div class="eyebrow" data-i18n="guide_eyebrow">Comprar a partir do estrangeiro</div>
-<h2 data-i18n="guide_title">O que os compradores internacionais me perguntam primeiro.</h2>
-<p class="intro" data-i18n="guide_intro">Informação geral para começar. Cada compra é diferente, por isso confirme sempre a sua situação com um advogado.</p>
-</div>
-<div class="faq">
-<details open=""><summary data-i18n="q1">Um estrangeiro pode comprar casa em Portugal?</summary><p data-i18n="a1">Sim. Não existem restrições gerais à compra de imóveis por estrangeiros em Portugal. Antes de assinar, precisa de um número de identificação fiscal português (NIF).</p></details>
-<details><summary data-i18n="q2">Como funciona a compra?</summary><p data-i18n="a2">Normalmente em duas fases: primeiro o CPCV, o contrato-promessa com sinal, depois a escritura, assinada perante um notário ou outro profissional habilitado. Os impostos (IMT e Imposto do Selo) são pagos antes da escritura.</p></details>
-<details><summary data-i18n="q3">Preciso de advogado?</summary><p data-i18n="a3">Não é obrigatório, mas recomendo sempre um advogado independente para verificar a documentação do imóvel e os contratos. Posso pô-lo em contacto com advogados com quem trabalho.</p></details>
-<details><summary data-i18n="q4">Tenho de estar em Portugal para comprar?</summary><p data-i18n="a4">Não necessariamente. Com uma procuração, alguém pode assinar em seu nome. A maioria dos compradores prefere visitar antes de decidir, e eu organizo essas visitas para que o seu tempo cá seja bem aproveitado.</p></details>
-<details><summary data-i18n="q5">Que custos acrescem ao preço?</summary><p data-i18n="a5">Sobretudo o IMT, o Imposto do Selo, os custos de escritura e registo e o advogado. Os valores dependem do preço, do tipo de imóvel e da sua situação. Ajudo-o a estimá-los para um imóvel concreto.</p></details>
-<details><summary data-i18n="q6">Pode ajudar-me com um imóvel de outra agência ou de um particular?</summary><p data-i18n="a6">Sim. Como consultora do comprador, posso ajudá-lo com qualquer imóvel do mercado, não apenas com os meus. Nas vendas entre particulares, acordamos as condições num contrato de mediação com o comprador antes de começarmos.</p></details>
 </div>
 </div>
 </section>
@@ -475,6 +409,72 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 <label class="consent"><input id="v-consent" required="" type="checkbox"/> <span data-i18n="f_consent">Aceito que os meus dados sejam usados para responder ao meu pedido, conforme descrito na <a href="privacy/">política de privacidade</a>.</span></label>
 <button class="btn solid" type="submit"><span data-i18n="v_send">Pedir a minha avaliação</span><span class="arr">→</span></button>
 </form>
+</div>
+</section>
+<section class="buying" id="buying">
+<div class="wrap">
+<div class="eyebrow sec-label" data-i18n="buy_eyebrow">Comprar</div>
+<div class="buyer buyer-grid" id="buyers-agent">
+<div>
+<div class="eyebrow light" data-i18n="ba_eyebrow">Consultora do comprador</div>
+<h2 data-i18n="ba_title">Todos os imóveis do mercado. Uma consultora do seu lado.</h2>
+<p data-i18n="ba_p1">A maioria dos consultores mostra sobretudo os seus próprios imóveis. Como consultora do comprador, procuro por si em todo o mercado: imóveis de outras agências, empreendimentos novos e casas vendidas diretamente pelos proprietários.</p>
+<p data-i18n="ba_p2">Com um contrato de mediação com o comprador, trabalho para si. A minha remuneração fica acordada por escrito antes de começarmos e só é devida se a compra se concretizar. Nos imóveis já anunciados por uma agência, a comissão é normalmente paga pelo vendedor; nas vendas entre particulares, a remuneração é acordada no seu contrato.</p>
+<div class="ctas"><a class="btn solid" data-wa="wa_buyer" href="https://wa.me/351920445059"><span data-i18n="ba_cta">Pedir informações sobre o contrato</span><span class="arr">→</span></a></div>
+</div>
+<ul class="ba-list">
+<li><span>01</span><p data-i18n="ba_l1">Pesquisa em agências, portais e vendedores particulares</p></li>
+<li><span>02</span><p data-i18n="ba_l2">Visitas selecionadas e preparadas, mesmo que esteja no estrangeiro</p></li>
+<li><span>03</span><p data-i18n="ba_l3">Verificação da documentação do imóvel com o seu advogado</p></li>
+<li><span>04</span><p data-i18n="ba_l4">Negociação em seu nome, até à escritura</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section class="forsale" id="for-sale">
+<div class="wrap">
+<div class="sale-box">
+<div>
+<div class="eyebrow" data-i18n="sale_eyebrow">À venda</div>
+<h2 data-i18n="sale_title">Imóveis disponíveis</h2>
+<p data-i18n="sale_p">Os meus imóveis atuais, com preços, fotografias e detalhes, estão na minha página profissional de anúncios.</p>
+<p data-i18n="sale_p2">Procura algo que não está anunciado? Diga-me o que procura.</p>
+</div>
+<div class="ctas">
+<a class="btn solid js-listings" href="https://www.iadportugal.pt/en/real-estate-agent/virginie.verschaete" rel="noopener" target="_blank"><span data-i18n="cta_sale">Ver imóveis à venda</span><span class="arr">→</span></a>
+<a class="btn ghost" data-i18n="cta_search" href="#contact">Diga-me o que procura</a>
+</div>
+</div>
+</div>
+</section>
+<section class="process" id="route">
+<div class="wrap">
+<div class="eyebrow" data-i18n="process_eyebrow">O seu percurso como comprador</div>
+<h2 data-i18n="process_title">Da primeira conversa à escritura.</h2>
+<ol class="steps">
+<li><h3 data-i18n="s1_t">Conversa</h3><p data-i18n="s1_d">Os seus planos, orçamento e prazos.</p></li>
+<li><h3 data-i18n="s2_t">Pesquisa</h3><p data-i18n="s2_d">Uma seleção à medida, em todo o mercado.</p></li>
+<li><h3 data-i18n="s3_t">Visitas</h3><p data-i18n="s3_d">Organizadas, preparadas e acompanhadas.</p></li>
+<li><h3>CPCV</h3><p data-i18n="s4_d">Negociação e contrato-promessa de compra e venda.</p></li>
+<li><h3>Escritura</h3><p data-i18n="s5_d">Assinatura da escritura e entrega das chaves.</p></li>
+</ol>
+</div>
+</section>
+<section class="guide cream" id="guide">
+<div class="wrap guide-grid">
+<div>
+<div class="eyebrow" data-i18n="guide_eyebrow">Comprar a partir do estrangeiro</div>
+<h2 data-i18n="guide_title">O que os compradores internacionais me perguntam primeiro.</h2>
+<p class="intro" data-i18n="guide_intro">Informação geral para começar. Cada compra é diferente, por isso confirme sempre a sua situação com um advogado.</p>
+</div>
+<div class="faq">
+<details open=""><summary data-i18n="q1">Um estrangeiro pode comprar casa em Portugal?</summary><p data-i18n="a1">Sim. Não existem restrições gerais à compra de imóveis por estrangeiros em Portugal. Antes de assinar, precisa de um número de identificação fiscal português (NIF).</p></details>
+<details><summary data-i18n="q2">Como funciona a compra?</summary><p data-i18n="a2">Normalmente em duas fases: primeiro o CPCV, o contrato-promessa com sinal, depois a escritura, assinada perante um notário ou outro profissional habilitado. Os impostos (IMT e Imposto do Selo) são pagos antes da escritura.</p></details>
+<details><summary data-i18n="q3">Preciso de advogado?</summary><p data-i18n="a3">Não é obrigatório, mas recomendo sempre um advogado independente para verificar a documentação do imóvel e os contratos. Posso pô-lo em contacto com advogados com quem trabalho.</p></details>
+<details><summary data-i18n="q4">Tenho de estar em Portugal para comprar?</summary><p data-i18n="a4">Não necessariamente. Com uma procuração, alguém pode assinar em seu nome. A maioria dos compradores prefere visitar antes de decidir, e eu organizo essas visitas para que o seu tempo cá seja bem aproveitado.</p></details>
+<details><summary data-i18n="q5">Que custos acrescem ao preço?</summary><p data-i18n="a5">Sobretudo o IMT, o Imposto do Selo, os custos de escritura e registo e o advogado. Os valores dependem do preço, do tipo de imóvel e da sua situação. Ajudo-o a estimá-los para um imóvel concreto.</p></details>
+<details><summary data-i18n="q6">Pode ajudar-me com um imóvel de outra agência ou de um particular?</summary><p data-i18n="a6">Sim. Como consultora do comprador, posso ajudá-lo com qualquer imóvel do mercado, não apenas com os meus. Nas vendas entre particulares, acordamos as condições num contrato de mediação com o comprador antes de começarmos.</p></details>
+</div>
 </div>
 </section>
 <section class="areas cream" id="areas">

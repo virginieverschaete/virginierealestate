@@ -122,7 +122,7 @@ nav a:hover{color:var(--gold-text)}
 .sell-route{margin-top:clamp(56px,8vw,96px);padding-top:clamp(40px,6vw,64px);position:relative}
 #selling .valuation{border-top:0;position:relative}
 .sell-route::before,#selling .valuation::before{content:"";position:absolute;top:0;left:clamp(20px,5vw,56px);right:clamp(20px,5vw,56px);border-top:1px solid var(--line)}
-.selling+.areas{border-top:1px solid var(--line)}
+.guide+.areas{border-top:1px solid var(--line)}
 .steps{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:52px;counter-reset:s}
 .steps li{counter-increment:s;padding-top:22px;border-top:1px solid var(--ink)}
 .steps li::before{content:"0" counter(s);font:500 12px var(--body);letter-spacing:.2em;color:var(--gold-text)}
@@ -291,9 +291,9 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 <a class="logo" href="../"><img alt="Virginie Real Estate" height="60" src="../../img/logo-main.svg" width="230"/></a>
 <button aria-controls="mainNav" aria-expanded="false" class="menu-btn" id="menuBtn">MENU</button>
 <nav id="mainNav">
+<a data-i18n="nav_sell" href="../#selling">Verkopen</a>
 <a data-i18n="nav_buy" href="../#buying">Kopen</a>
 <a data-i18n="nav_forsale" href="../#for-sale">Te koop</a>
-<a data-i18n="nav_sell" href="../#selling">Verkopen</a>
 <a data-i18n="nav_areas" href="../#areas">Regio</a>
 <a data-i18n="nav_about" href="../#about">Over mij</a>
 <a data-i18n="nav_contact" href="../#contact">Contact</a>
