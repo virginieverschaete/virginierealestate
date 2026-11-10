@@ -248,7 +248,11 @@ nav a:hover{color:var(--gold-text)}
 .channels a:hover strong{color:var(--gold-text)}
 footer{background:var(--ink);color:rgba(243,238,229,.55);font-size:13px;letter-spacing:.06em;padding:36px 0 40px}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.foot-logo{width:240px;height:auto}
+.foot-logo{width:220px;height:auto}
+.cobrand{display:flex;align-items:center;gap:30px}
+.cobrand .iad{height:56px;width:auto;margin:14px 0}
+.cobrand .sep{width:1px;height:72px;background:rgba(243,238,229,.3)}
+@media (max-width:560px){.cobrand{gap:20px}.cobrand .iad{height:42px}.cobrand .sep{height:56px}.foot-logo{width:170px}}
 
 /* Responsive */
 @media (max-width:960px){
@@ -336,7 +340,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 <div class="wrap"><div class="eyebrow">Outras zonas onde trabalho</div><div class="other-towns"><a href="../obidos/">Óbidos</a><a href="../foz-do-arelho/">Foz do Arelho</a><a href="../sao-martinho-do-porto/">São Martinho do Porto</a><a href="../alcobaca/">Alcobaça</a><a href="../bombarral/">Bombarral</a><a href="../lourinha/">Lourinhã</a></div></div>
 </section></main>
 <footer>
-<div class="wrap"><img alt="Virginie Real Estate – Premium Real Estate for Every Home" class="foot-logo" height="130" src="../../../img/logo-light.svg" width="260"/><span class="foot-links">© 2026 Virginie Real Estate · <a data-i18n="footer_privacy" href="../../privacy/">Política de privacidade</a></span></div>
+<div class="wrap"><span class="foot-links">© 2026 Virginie Real Estate · <a data-i18n="footer_privacy" href="../../privacy/">Política de privacidade</a></span><div class="cobrand"><img alt="iad Real Estate" class="iad" height="70" src="../../../img/iad-white.svg" width="100"/><span aria-hidden="true" class="sep"></span><img alt="Virginie Real Estate – Premium Real Estate for Every Home" class="foot-logo" height="130" src="../../../img/logo-light.svg" width="260"/></div></div>
 </footer>
 <script>
 /* Client testimonials. Only add real quotes, with the client's permission.

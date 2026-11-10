@@ -248,7 +248,11 @@ nav a:hover{color:var(--gold-text)}
 .channels a:hover strong{color:var(--gold-text)}
 footer{background:var(--ink);color:rgba(243,238,229,.55);font-size:13px;letter-spacing:.06em;padding:36px 0 40px}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.foot-logo{width:240px;height:auto}
+.foot-logo{width:220px;height:auto}
+.cobrand{display:flex;align-items:center;gap:30px}
+.cobrand .iad{height:56px;width:auto;margin:14px 0}
+.cobrand .sep{width:1px;height:72px;background:rgba(243,238,229,.3)}
+@media (max-width:560px){.cobrand{gap:20px}.cobrand .iad{height:42px}.cobrand .sep{height:56px}.foot-logo{width:170px}}
 
 /* Responsive */
 @media (max-width:960px){
@@ -316,7 +320,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 </section>
 <section class="legal"><div class="wrap"><h2>Who is responsible</h2><p>Virginie Verschaete (Virginie Real Estate) is responsible for the personal data described here. Contact: <a href="mailto:info@virginierealestate.com">info@virginierealestate.com</a> or +351 920 445 059.</p><h2>What data I collect</h2><p>Only what you send me yourself: your name, e-mail address, phone number (optional), what you are looking for and your message. When you contact me by e-mail, phone or WhatsApp, I receive the details you share there. If you request a valuation, you can also send documents such as the caderneta predial and the address of the property.</p><h2>Why I use it</h2><p>To answer your request, to help you buy or sell a property and to follow up on your request. The legal basis is your consent and the steps you ask me to take before a possible agreement (article 6(1)(a) and (b) GDPR). I do not use your data for newsletters or advertising without asking you first, and I never sell it.</p><h2>Who processes it for me</h2><p>The contact form is delivered to my mailbox by FormSubmit. My e-mail runs on Google Workspace. The website is hosted on GitHub Pages, which records technical data such as your IP address to deliver the pages safely. If you choose WhatsApp, Instagram, Facebook or YouTube, the privacy policies of those services apply. If we sign a mediation agreement, your data is also processed by the licensed real estate mediation company I work with, under its own privacy policy.</p><h2>How long I keep it</h2><p>As long as needed to handle your request and follow it up, and no longer than 24 months after our last contact, unless the law requires a longer period, for example for a property transaction.</p><h2>Cookies</h2><p>This website does not use cookies for tracking or advertising and does not use analytics tools.</p><h2>Your rights</h2><p>You can ask to see, correct or delete your data, to restrict or object to its use, and to receive it in a portable format. You can withdraw your consent at any time. Send your request to <a href="mailto:info@virginierealestate.com">info@virginierealestate.com</a>. You may also file a complaint with the Portuguese data protection authority, the CNPD (<a href="https://www.cnpd.pt" rel="noopener" target="_blank">www.cnpd.pt</a>).</p></div></section></main>
 <footer>
-<div class="wrap"><img alt="Virginie Real Estate – Premium Real Estate for Every Home" class="foot-logo" height="130" src="../img/logo-light.svg" width="260"/><span class="foot-links">© 2026 Virginie Real Estate · <a data-i18n="footer_privacy" href="./">Privacy policy</a></span></div>
+<div class="wrap"><span class="foot-links">© 2026 Virginie Real Estate · <a data-i18n="footer_privacy" href="./">Privacy policy</a></span><div class="cobrand"><img alt="iad Real Estate" class="iad" height="70" src="../img/iad-white.svg" width="100"/><span aria-hidden="true" class="sep"></span><img alt="Virginie Real Estate – Premium Real Estate for Every Home" class="foot-logo" height="130" src="../img/logo-light.svg" width="260"/></div></div>
 </footer>
 <script>
 /* Client testimonials. Only add real quotes, with the client's permission.
