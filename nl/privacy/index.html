@@ -326,7 +326,9 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 /* Client testimonials. Only add real quotes, with the client's permission.
    Example: {quote:"…", name:"Anna & Pieter", origin:"Netherlands", deal:"Bought in Óbidos"}
    While this list is empty, the section stays hidden. */
-const TESTIMONIALS = [];
+const TESTIMONIALS = [
+  {quote:"Wij zijn op een zeer vakkundige en plezierige manier door Virginie begeleid in de zoektocht naar onze droomwoning in Portugal. Ze is enorm behulpzaam, gedreven en erg vriendelijk. Mede dankzij haar hulp wonen we nu in een fantastisch huis op een mooie plek. Bedankt Virginie.", name:"Manuela V.", origin:"Google ★★★★★", deal:""}
+];
 if (TESTIMONIALS.length){
   const g = document.getElementById("revGrid");
   TESTIMONIALS.forEach(t => {
