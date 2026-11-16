@@ -327,14 +327,22 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
    Example: {quote:"…", name:"Anna & Pieter", origin:"Netherlands", deal:"Bought in Óbidos"}
    While this list is empty, the section stays hidden. */
 const TESTIMONIALS = [
-  {quote:"Wij zijn op een zeer vakkundige en plezierige manier door Virginie begeleid in de zoektocht naar onze droomwoning in Portugal. Ze is enorm behulpzaam, gedreven en erg vriendelijk. Mede dankzij haar hulp wonen we nu in een fantastisch huis op een mooie plek. Bedankt Virginie.", name:"Manuela V.", origin:"Google ★★★★★", deal:""}
+  {lang:"nl", name:"Manuela V.", origin:"Google ★★★★★", quote:{
+    nl:"Wij zijn op een zeer vakkundige en plezierige manier door Virginie begeleid in de zoektocht naar onze droomwoning in Portugal. Ze is enorm behulpzaam, gedreven en erg vriendelijk. Mede dankzij haar hulp wonen we nu in een fantastisch huis op een mooie plek. Bedankt Virginie.",
+    en:"Virginie guided us through the search for our dream home in Portugal in a very professional and pleasant way. She is extremely helpful, driven and very friendly. Thanks in part to her help, we now live in a fantastic house in a beautiful place. Thank you, Virginie.",
+    fr:"Virginie nous a accompagnés de manière très professionnelle et agréable dans la recherche de la maison de nos rêves au Portugal. Elle est extrêmement serviable, motivée et très aimable. Grâce notamment à son aide, nous vivons aujourd'hui dans une maison fantastique, dans un très bel endroit. Merci Virginie.",
+    pt:"A Virginie acompanhou-nos de forma muito profissional e agradável na procura da casa dos nossos sonhos em Portugal. É extremamente prestável, empenhada e muito simpática. Em grande parte graças à sua ajuda, vivemos hoje numa casa fantástica, num sítio muito bonito. Obrigada, Virginie."}}
 ];
+const REV_TR = {en:{nl:"Translated from Dutch"}, fr:{nl:"Traduit du néerlandais"}, pt:{nl:"Traduzido do neerlandês"}, nl:{}};
 if (TESTIMONIALS.length){
   const g = document.getElementById("revGrid");
+  const L = (document.documentElement.lang || "en").slice(0,2);
   TESTIMONIALS.forEach(t => {
     const f = document.createElement("figure");
-    const q = document.createElement("blockquote"); q.textContent = t.quote;
-    const c = document.createElement("figcaption"); c.textContent = [t.name, t.origin, t.deal].filter(Boolean).join(" · ");
+    const q = document.createElement("blockquote");
+    q.textContent = typeof t.quote === "string" ? t.quote : (t.quote[L] || t.quote.en);
+    const note = t.lang && t.lang !== L && REV_TR[L] ? REV_TR[L][t.lang] : "";
+    const c = document.createElement("figcaption"); c.textContent = [t.name, t.origin, t.deal, note].filter(Boolean).join(" · ");
     f.append(q, c); g.append(f);
   });
   document.getElementById("reviews").hidden = false;
